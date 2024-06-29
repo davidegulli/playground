@@ -3,9 +3,9 @@ from neural_network import NeuralNetwork
 from dataset import Dataset
 from graphs import plot_losses_graph
 
-# dataset = Dataset(file_path="../files/wizmir.txt", columns_number=9)
-# dataset = Dataset(file_path="../files/ele-2.txt", columns_number=4)
-dataset = Dataset(file_path="../files/house_prices.txt", columns_number=6)
+#dataset = Dataset(file_path="../files/wizmir.txt", columns_number=9)
+dataset = Dataset(file_path="../files/ele-2.txt", columns_number=4)
+#dataset = Dataset(file_path="../files/house_prices.txt", columns_number=6)
 
 training_data, test_data, training_targets, test_targets, = dataset.load()
 
@@ -29,9 +29,9 @@ for neurons in range(5, 51, 5):
     training_loss = nn.train(
         training_data,
         training_targets.reshape(len(training_targets), 1),
-        epochs=100000,
-        learning_rate=0.0001,
-        momentum=0.8
+        epochs=10000,
+        learning_rate=0.00001,
+        momentum=0.9
     )
 
     y_training_losses.append(training_loss)
